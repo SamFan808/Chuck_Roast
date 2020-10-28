@@ -11,5 +11,5 @@
 ## Collaborators:
 * Sam
 * Sara
-* Seth
+* Shawn
 * Zach
