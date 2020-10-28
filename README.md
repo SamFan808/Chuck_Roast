@@ -1,21 +1,15 @@
-# Project_1
-Project main repo
+# Project_1 Chuck Roast
 
-PROJECT CHECK LIST
-## Project Title
+## Description:
 
-## Project Description
+## Usage:
 
-## User Story
+## Wireframe:
 
-```
-AS A ...
-I WANT a ...
-SO THAT ...
-```
+## Third-party Assets:
 
-## Wireframe
-
-## APIs Used
-
-## Tasks
+## Collaborators:
+* Sam
+* Sara
+* Seth
+* Zach
