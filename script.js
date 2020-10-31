@@ -23,50 +23,60 @@ $("#random").on("click", function () {
     });
 });
 
-// fetch(mealsChicken)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log("meals by chicken -----------");
-//     console.log(data);
-//   });
+$("#chicken").on("click", function () {
+  fetch(mealsChicken)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("chicken dish ----------------");
+      console.log(data);
+    });
+});
 
-// fetch(mealsBeef)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log("meals by beef -----------");
-//     console.log(data);
-//   });
+$("#beef").on("click", function () {
+  fetch(mealsBeef)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("meals by beef -----------");
+      console.log(data);
+    });
+});
 
-// fetch(mealsLamb)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log("meals by lamb -----------");
-//     console.log(data);
-//   });
+$("#lamb").on("click", function () {
+  fetch(mealsLamb)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("meals by lamb -----------");
+      console.log(data);
+    });
+});
 
-// fetch(mealsPork)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log("meals by pork -----------");
-//     console.log(data);
-//   });
+$("#pork").on("click", function () {
+  fetch(mealsPork)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("meals by pork -----------");
+      console.log(data);
+    });
+});
 
-// fetch(mealsSeafood)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log("meals by seafood -----------");
-//     console.log(data);
-//   });
+$("#seafood").on("click", function () {
+  fetch(mealsSeafood)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("meals by seafood -----------");
+      console.log(data);
+    });
+});
 
 // fetch(norrisFoodQuotes)
 //   .then(function (response) {
