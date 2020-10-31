@@ -1,7 +1,8 @@
 var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 var foodCategory = "https://www.themealdb.com/api/json/v1/1/categories.php";
+var category = "seafood";
 var mealsByCategory =
-  "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"; //this will be changed to be dynamic to food categories or make it specific to which categories we want
+  "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + category; //this will be changed to be dynamic to food categories or make it specific to which categories we want
 
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 
