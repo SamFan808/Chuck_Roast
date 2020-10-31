@@ -12,68 +12,70 @@ var mealsSeafood =
   "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood";
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 
-fetch(randomMeal)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("random meal ----------------");
-    console.log(data);
-  });
+$("#random").on("click", function () {
+  fetch(randomMeal)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("random meal ----------------");
+      console.log(data);
+    });
+});
 
-fetch(mealsChicken)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("meals by chicken -----------");
-    console.log(data);
-  });
+// fetch(mealsChicken)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("meals by chicken -----------");
+//     console.log(data);
+//   });
 
-fetch(mealsBeef)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("meals by beef -----------");
-    console.log(data);
-  });
+// fetch(mealsBeef)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("meals by beef -----------");
+//     console.log(data);
+//   });
 
-fetch(mealsLamb)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("meals by lamb -----------");
-    console.log(data);
-  });
+// fetch(mealsLamb)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("meals by lamb -----------");
+//     console.log(data);
+//   });
 
-fetch(mealsPork)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("meals by pork -----------");
-    console.log(data);
-  });
+// fetch(mealsPork)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("meals by pork -----------");
+//     console.log(data);
+//   });
 
-fetch(mealsSeafood)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("meals by seafood -----------");
-    console.log(data);
-  });
+// fetch(mealsSeafood)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("meals by seafood -----------");
+//     console.log(data);
+//   });
 
-fetch(norrisFoodQuotes)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log("random Norris food quote");
-    console.log(data);
-  });
+// fetch(norrisFoodQuotes)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log("random Norris food quote");
+//     console.log(data);
+//   });
 
 // $(".cell").on("click", function (event) {
 //   event.preventDefault();
