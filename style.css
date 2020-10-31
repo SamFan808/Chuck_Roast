@@ -1,6 +1,8 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    line-height: 1;
-    background: whitesmoke);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: grey;
+  }
+
+  h1 {
+    text-align: center;
   }
