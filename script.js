@@ -92,23 +92,40 @@ init ();
 //   });
 
 // fetch function for search input ===============
-$(".button").on("click", function () {
-  var mealInput = document.querySelector(".input-group-field");
-  var meal = mealInput.value;
-  var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
-  fetch(mealSearch)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      if (meal === "") {
-        console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
-      } else if (data.meals === null) {
-        console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
-      } else {
+function getMeal () {
+  $(".button").on("click", function () {
+    var mealInput = document.querySelector(".input-group-field");
+    var meal = mealInput.value;
+    var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
+    fetch(mealSearch)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        // $('#result').empty();
+        if (meal === "") {
+          console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
+        } else if (data.meals === null) {
+          console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
+        } else {
         // anchor tag that takes user to a div tag with a specific ID, smooth scroll takes user to page 2, allows for return navigation by using "back"
-        renderCell();
+        for (var i = 0; i < data.meals.length; i++) {
+          location.href ="index.html#results";
+          var grid = $('#gridTarget');
+          var cell = $('<article>');
+          var card = $('<article>');
+          var cardBody = $('<article>');
+          cell.addClass('cell');
+          card.addClass('card');
+          cardBody.addClass('card-body');
+          grid.append(cell);
+          cell.append(card);
+          card.append(cardBody);
+          cardBody.attr('id', 'result'+ [i]);
+          console.log(data.meals[0].strMeal);
+          $('#result'+[i]).text(data.meals[0].strMeal);
+        }
       }
     });
     // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
@@ -124,23 +141,27 @@ $(".button").on("click", function () {
     }
     recents();
     listRecent();
-});
+  });
+}
 // creates the results page
-function renderCell () {
-  location.href ="index.html#results";
-  var grid = $("#gridTarget");
-  var cell = $("<section>");
-  var card = $("<section>");
-  var cardBody = $("<section>");
+// function renderCell () {
+//   location.href ="index.html#results";
+//   var grid = $("#gridTarget");
+//   var cell = $("<section>");
+//   var card = $("<section>");
+//   var cardBody = $("<section>");
 
-  cell.addClass("cell");
-  card.addClass("card");
-  cardBody.addClass("card-body");
-  cardBody.attr("id", "result1");
+//   cell.addClass("cell");
+//   card.addClass("card");
+//   cardBody.addClass("card-body");
 
-  grid.append(cell);
-  cell.append(card);
-  card.append(cardBody);
+//   grid.append(cell);
+//   cell.append(card);
+//   card.append(cardBody);
+// }
+
+function searchRender () {
+
 }
 
 $(".cell").on("click", function (event) {
@@ -189,7 +210,6 @@ function recents() {
     var liN1 = document.createElement("li");
     recentList.appendChild(liN1);
     liN1.textContent = mealArray[i];
-    console.log(mealArray);
   }
 }
 // makes the recent list clickable, and goes to the results page
@@ -200,10 +220,10 @@ function listRecent () {
     for (var i = 0; i < clickList.length; i++) {
       clickList[i].addEventListener("click", function () {
         clickMeal = this.innerHTML;
-        renderCell(clickMeal);
+        console.log(clickMeal);
       });
     }
   }
 }
-
+getMeal();
 listRecent();
