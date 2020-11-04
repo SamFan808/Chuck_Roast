@@ -11,7 +11,9 @@ var mealsLamb = "https://www.themealdb.com/api/json/v1/1/filter.php?c=lamb";
 var mealsSeafood =
   "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood";
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
-
+var mealArray = [];
+var recentList = document.querySelector(".recents");
+init ();
 
 
 // $("#random").on("click", function () {
@@ -88,8 +90,8 @@ var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 //     console.log("random Norris food quote");
 //     console.log(data);
 //   });
-// fetch function for search input ===============
 
+// fetch function for search input ===============
 $(".button").on("click", function () {
   var mealInput = document.querySelector(".input-group-field");
   var meal = mealInput.value;
@@ -109,9 +111,21 @@ $(".button").on("click", function () {
         renderCell();
       }
     });
-    mealInput.value = ""; // resets the search field
+    // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
+    mealArray.push(meal);
+    if (mealArray.length > 7) {
+      mealArray.shift();
+      mealArray.length = Math.min(mealArray.length, 7);
+      mealInput.value = ""; // resets the search field
+      storeRecent();
+    } else {
+      mealInput.value = "";
+      storeRecent();
+    }
+    recents();
+    listRecent();
 });
-
+// creates the results page
 function renderCell () {
   location.href ="index.html#results";
   var grid = $("#gridTarget");
@@ -127,7 +141,6 @@ function renderCell () {
   grid.append(cell);
   cell.append(card);
   card.append(cardBody);
-  console.log("it's working");
 }
 
 $(".cell").on("click", function (event) {
@@ -157,3 +170,40 @@ $(".cell").on("click", function (event) {
 
 
 // localStorage feature goes here ========================
+// stores recent searches in localStorage
+function storeRecent() {
+  localStorage.setItem("recentMeals", JSON.stringify(mealArray));
+};
+// retrieves recents from localStorage
+function init() {
+  var storedMeals = JSON.parse(localStorage.getItem("recentMeals"));
+  if (storedMeals !== null) {
+    mealArray = storedMeals;
+    recents ();
+  }
+}
+// creates the list items from recent searches
+function recents() {
+  $('li').remove();
+  for (var i = 0; i < mealArray.length; i++) {
+    var liN1 = document.createElement("li");
+    recentList.appendChild(liN1);
+    liN1.textContent = mealArray[i];
+    console.log(mealArray);
+  }
+}
+// makes the recent list clickable, and goes to the results page
+function listRecent () {
+  var clickList = $("li");
+  var clickMeal = ""
+  if (clickList.length > 0) {
+    for (var i = 0; i < clickList.length; i++) {
+      clickList[i].addEventListener("click", function () {
+        clickMeal = this.innerHTML;
+        renderCell(clickMeal);
+      });
+    }
+  }
+}
+
+listRecent();
