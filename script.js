@@ -126,7 +126,16 @@ function getMeal (meal) {
             $('#result'+[i]).on('click', function(event) {
               event.preventDefault();
               location.href = "index.html#resultSingle";
+              var resImg = $('<img>');
+              $('#gridTarget2').append(cell);
+              cell.append(card);
+              card.append(resImg);
+              cell.addClass('cell');
+              card.addClass('card');
+              card.attr('id','resultCard');
+              resImg.attr('id','resultImg');
               $('#resultCard').text(this.innerHTML);
+              $('#resultImg').attr('src', this.strMealThumb);
               chuckQuote();
             });
            // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
@@ -193,15 +202,23 @@ $(".cell").on("click", function (event) {
 });
 
 function chuckQuote () {
-    var chuckTarget = document.querySelector("#chuck");
+    var chuckTarget = $('#chuckT');
+    var chuckCell = $('<article>')
+    var chuckCard = $('<article>')
+    var chuckH3 = $('<h3>');
+    chuckCell.addClass('cell');
+    chuckCard.addClass('card');
+    chuckH3.attr('id', 'chuck');
+    chuckTarget.append(chuckCell);
+    chuckCell.append(chuckCard);
+    chuckCard.append(chuckH3);
     fetch(norrisFoodQuotes)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         console.log(data.value);
-        chuckTarget.textContent = data.value;
+        $('#chuck').text(data.value);
       });
 }
 
