@@ -22,6 +22,7 @@ $("#random").on("click", function () {
       console.log("random meal ----------------");
       console.log(data);
     });
+  location.href = "index2.html";
 });
 
 $("#chicken").on("click", function () {
