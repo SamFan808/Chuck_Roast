@@ -26,7 +26,7 @@ $("#random").on("click", function () {
 });
 
 $("#chicken").on("click", function () {
-  // window.location = "index2.html";
+  window.location = "index2.html";
   fetch(mealsChicken)
     .then(function (response) {
       return response.json();
