@@ -14,6 +14,7 @@ var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 
 // when click on an image, it fetches the appropriate api
 $("#random").on("click", function () {
+  window.location = "index2.html";
   fetch(randomMeal)
     .then(function (response) {
       return response.json();
@@ -22,10 +23,10 @@ $("#random").on("click", function () {
       console.log("random meal ----------------");
       console.log(data);
     });
-  location.href = "index2.html";
 });
 
 $("#chicken").on("click", function () {
+  // window.location = "index2.html";
   fetch(mealsChicken)
     .then(function (response) {
       return response.json();
@@ -37,6 +38,7 @@ $("#chicken").on("click", function () {
 });
 
 $("#beef").on("click", function () {
+  window.location = "index2.html";
   fetch(mealsBeef)
     .then(function (response) {
       return response.json();
@@ -48,6 +50,7 @@ $("#beef").on("click", function () {
 });
 
 $("#lamb").on("click", function () {
+  window.location = "index2.html";
   fetch(mealsLamb)
     .then(function (response) {
       return response.json();
@@ -59,6 +62,7 @@ $("#lamb").on("click", function () {
 });
 
 $("#pork").on("click", function () {
+  window.location = "index2.html";
   fetch(mealsPork)
     .then(function (response) {
       return response.json();
@@ -70,6 +74,7 @@ $("#pork").on("click", function () {
 });
 
 $("#seafood").on("click", function () {
+  window.location = "index2.html";
   fetch(mealsSeafood)
     .then(function (response) {
       return response.json();
