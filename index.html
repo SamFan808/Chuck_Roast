@@ -24,32 +24,32 @@
 
     <section>
         <section class="grid-x grid-padding-x small-up-3">
-            <section class="cell" id="chicken">
+            <section class="cell" id="chicken" data-food="1">
                 <section class="card">
                     <img alt="chicken nav icon" src="https://www.themealdb.com/images/media/meals/qstyvs1505931190.jpg">
                 </section>
             </section>
-            <section class="cell" id="beef">
+            <section class="cell" id="beef" data-food="2">
                 <section class="card">
                     <img alt="beef nav icon" src="https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg">
                 </section>
             </section>
-            <section class="cell" id="pork">
+            <section class="cell" id="pork" data-food="3">
                 <section class="card">
                     <img alt="pork nav icon" src="https://www.themealdb.com/images/media/meals/qqwypw1504642429.jpg">
                 </section>
             </section>
-            <section class="cell" id="lamb">
+            <section class="cell" id="lamb" data-food="4">
                 <section class="card">
                     <img alt="lamb nav icon" src="https://www.themealdb.com/images/media/meals/yuwtuu1511295751.jpg">
                 </section>
             </section>
-            <section class="cell" id="random">
+            <section class="cell" id="random" data-food="5">
                 <section class="card">
                     <img alt="chuck nav icon" src="https://www.themealdb.com/images/media/meals/vtqxtu1511784197.jpg">
                 </section>
             </section>
-            <section class="cell" id="seafood">
+            <section class="cell" id="seafood" data-food="6">
                 <section class="card">
                     <img alt="random nav icon" src="https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg">
                 </section>
@@ -66,11 +66,32 @@
 
 
 
-    
-<!-- results page after the break/jump -->
+
+    <!-- results page after the break/jump -->
     <p class="break"></p>
-    <article id="results">anchor</article>
+    <article id="results"></article>
     <article class="grid-x grid-padding-x small-up-3" id="gridTarget"></article>
+    <p class="break"></p>
+    <article id="resultSingle"></article>
+    <article class="grid-x grid-padding-x" id="gridTarget2">
+        <article class="cell">
+            <!--make this hidden or dynamically load it-->
+            <article class="card" id="resultCard">
+                <img id="resultImg">
+            </article>
+        </article>
+    </article>
+
+    <article class="grid-x grid-padding-x">
+        <article class="cell"></article>
+        <!--make this hidden or dynamically load it-->
+        <article class="card">
+            <!--make this hidden or dynamically load it-->
+            <h3 id="chuck"></h3>
+        </article>
+    </article>
+    </article>
+
 
 
     <!-- scroll-behavior =smooth (put this in the css for page jumping from anchor tag ) -->

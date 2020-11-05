@@ -13,8 +13,8 @@ var mealsSeafood =
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 var mealArray = [];
 var recentList = document.querySelector(".recents");
+var fetchButton = document.querySelector(".button");
 init ();
-
 
 // $("#random").on("click", function () {
 //   fetch(randomMeal)
@@ -92,8 +92,7 @@ init ();
 //   });
 
 // fetch function for search input ===============
-function getMeal () {
-  $(".button").on("click", function () {
+function getMeal (meal) {
     var mealInput = document.querySelector(".input-group-field");
     var meal = mealInput.value;
     var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
@@ -102,7 +101,7 @@ function getMeal () {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         // $('#result').empty();
         if (meal === "") {
           console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
@@ -110,38 +109,45 @@ function getMeal () {
           console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
         } else {
         // anchor tag that takes user to a div tag with a specific ID, smooth scroll takes user to page 2, allows for return navigation by using "back"
-        for (var i = 0; i < data.meals.length; i++) {
-          location.href ="index.html#results";
-          var grid = $('#gridTarget');
-          var cell = $('<article>');
-          var card = $('<article>');
-          var cardBody = $('<article>');
-          cell.addClass('cell');
-          card.addClass('card');
-          cardBody.addClass('card-body');
-          grid.append(cell);
-          cell.append(card);
-          card.append(cardBody);
-          cardBody.attr('id', 'result'+ [i]);
-          console.log(data.meals[0].strMeal);
-          $('#result'+[i]).text(data.meals[0].strMeal);
-        }
-      }
-    });
-    // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
-    mealArray.push(meal);
-    if (mealArray.length > 7) {
-      mealArray.shift();
-      mealArray.length = Math.min(mealArray.length, 7);
-      mealInput.value = ""; // resets the search field
-      storeRecent();
-    } else {
-      mealInput.value = "";
-      storeRecent();
-    }
-    recents();
-    listRecent();
-  });
+          for (var i = 0; i < data.meals.length; i++) {
+            location.href ="index.html#results";
+            var grid = $('#gridTarget');
+            var cell = $('<article>');
+            var card = $('<article>');
+            var cardBody = $('<article>');
+            cell.addClass('cell');
+            card.addClass('card');
+            cardBody.addClass('card-body');
+            grid.append(cell);
+            cell.append(card);
+            card.append(cardBody);
+            cardBody.attr('id', 'result'+ [i]);
+            $('#result'+[i]).text(data.meals[i].strMeal);
+            $('#result'+[i]).on('click', function(event) {
+              event.preventDefault();
+              location.href = "index.html#resultSingle";
+              $('#resultCard').text(this.innerHTML);
+              chuckQuote();
+            });
+           // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
+            mealArray.push(meal); {
+              if (mealArray.length > 7) {
+                mealArray.shift();
+                mealArray.length = Math.min(mealArray.length, 7);
+                mealInput.value = ""; // resets the search field
+                storeRecent();
+                listRecent();
+              } else {
+                mealInput.value = "";
+                storeRecent();
+                listRecent();
+              }
+            }
+          }
+        };
+        recents();
+        listRecent();
+      });
 }
 // creates the results page
 // function renderCell () {
@@ -160,9 +166,6 @@ function getMeal () {
 //   card.append(cardBody);
 // }
 
-function searchRender () {
-
-}
 
 $(".cell").on("click", function (event) {
   event.preventDefault();
@@ -189,11 +192,24 @@ $(".cell").on("click", function (event) {
   console.log(category);
 });
 
+function chuckQuote () {
+    var chuckTarget = document.querySelector("#chuck");
+    fetch(norrisFoodQuotes)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        console.log(data.value);
+        chuckTarget.textContent = data.value;
+      });
+}
 
 // localStorage feature goes here ========================
 // stores recent searches in localStorage
 function storeRecent() {
   localStorage.setItem("recentMeals", JSON.stringify(mealArray));
+  recents();
 };
 // retrieves recents from localStorage
 function init() {
@@ -221,9 +237,12 @@ function listRecent () {
       clickList[i].addEventListener("click", function () {
         clickMeal = this.innerHTML;
         console.log(clickMeal);
+        getMeal(clickMeal);
       });
     }
   }
 }
-getMeal();
+
+fetchButton.addEventListener('click', getMeal);
+
 listRecent();
