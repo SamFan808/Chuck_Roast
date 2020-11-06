@@ -1,8 +1,16 @@
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: grey;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  h1 {
-    text-align: center;
-  }
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: grey;
+}
+
+h1 {
+  text-align: center;
+}
+
+.break {
+  padding-top: 600px;
+}
