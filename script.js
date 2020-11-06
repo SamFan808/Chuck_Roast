@@ -91,9 +91,10 @@ init ();
 //     console.log(data);
 //   });
 
+var mealInput = document.querySelector(".input-group-field");
 // fetch function for search input ===============
 function getMeal (meal) {
-    var mealInput = document.querySelector(".input-group-field");
+
     var meal = mealInput.value;
     var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
     fetch(mealSearch)
@@ -135,7 +136,7 @@ function getMeal (meal) {
               card.attr('id','resultCard');
               resImg.attr('id','resultImg');
               $('#resultCard').text(this.innerHTML);
-              $('#resultImg').attr('src', this.strMealThumb);
+              // $('#resultImg').attr('src', this.strMealThumb);
               chuckQuote();
             });
            // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
