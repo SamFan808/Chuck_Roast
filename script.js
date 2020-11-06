@@ -46,7 +46,7 @@ init ();
 //     .then(function (data) {
 //       console.log("meals by beef -----------");
 //       console.log(data);
-//     });
+//     }); 
 // });
 
 // $("#lamb").on("click", function () {
@@ -94,7 +94,6 @@ init ();
 var mealInput = document.querySelector(".input-group-field");
 // fetch function for search input ===============
 function getMeal (meal) {
-
     var meal = mealInput.value;
     var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
     fetch(mealSearch)
@@ -102,7 +101,6 @@ function getMeal (meal) {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data);
         // $('#result').empty();
         if (meal === "") {
           console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
@@ -249,11 +247,11 @@ function recents() {
 // makes the recent list clickable, and goes to the results page
 function listRecent () {
   var clickList = $("li");
-  var clickMeal = ""
+  var clickMeal;
   if (clickList.length > 0) {
     for (var i = 0; i < clickList.length; i++) {
       clickList[i].addEventListener("click", function () {
-        clickMeal = this.innerHTML;
+        clickMeal = document.querySelector("li").innerHTML;
         console.log(clickMeal);
         getMeal(clickMeal);
       });
