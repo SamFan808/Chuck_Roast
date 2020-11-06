@@ -1,6 +1,5 @@
-// fix this.children thing line 140
-// link to recipe, make images clickable w/search
-// get chuck quote back, list items keep adding when clicked, fix this sometime
+// link to recipe
+// list items keep adding when clicked, fix this sometime
 var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 var mealArray = [];
@@ -95,19 +94,23 @@ function getMeal (meal) {
             </article>`)
             chuckQuote();
           });
-        }             
-      });  // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
             if (mealArray.length > 7) {
-              mealArray.shift();
+              mealArray.unshift();
               mealArray.length = Math.min(mealArray.length, 7);
               mealArray.push(meal);
+              recents();
               storeRecent();
               listRecent();
-            } else if (mealArray.length < 7) {
+              
+            } else if (mealArray.length >= 0) {
               mealArray.push(meal);
               storeRecent();
               listRecent();
             }
+            
+          }             
+      });  // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
+
 }
 // chuck norris quote fetch function
 function chuckQuote () {
@@ -135,7 +138,7 @@ function chuckQuote () {
 // stores recent searches in localStorage
 function storeRecent() {
   localStorage.setItem("recentMeals", JSON.stringify(mealArray));
-  recents();
+  // recents();
 };
 // retrieves recents from localStorage
 function init() {
@@ -168,7 +171,7 @@ function listRecent () {
     }
   }
 }
-
+// adds click even to the search button, passes userinput variable to the getMeal function
 fetchButton.addEventListener('click', function () {
   var mealInput = document.querySelector(".input-group-field");
   var mealValue = mealInput.value;
