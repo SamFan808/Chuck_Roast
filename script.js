@@ -88,10 +88,10 @@ function getMeal (meal) {
             event.preventDefault();
             location.href = "index.html#resultSingle";
             $('#gridTarget2').append(`<article class="cell">
-            <article class="card">${this.innerHTML}
+            <section class="card">${this.innerHTML}
             <img src=${""}>
-            </article>
-            </article>`)
+            </section>
+            </section>`)
             chuckQuote();
           });
             if (mealArray.length > 7) {
@@ -166,16 +166,22 @@ function listRecent () {
       clickList[i].addEventListener("click", function () {
         clickMeal = document.querySelector("li").innerHTML;
         console.log(clickMeal);
+        clear();
         getMeal(clickMeal);
       });
     }
   }
+}
+
+function clear () {
+  $('article').remove();
 }
 // adds click even to the search button, passes userinput variable to the getMeal function
 fetchButton.addEventListener('click', function () {
   var mealInput = document.querySelector(".input-group-field");
   var mealValue = mealInput.value;
   console.log(mealValue);
+  clear();
   getMeal(mealValue)
   mealInput.value = ""; // resets the search field
  });  
