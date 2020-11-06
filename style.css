@@ -14,3 +14,8 @@ h1 {
 .break {
   padding-top: 600px;
 }
+
+card {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
