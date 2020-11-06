@@ -1,3 +1,6 @@
+// fix this.children thing line 140
+// link to recipe, make images clickable w/search
+// get chuck quote back
 var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 var foodCategory = "https://www.themealdb.com/api/json/v1/1/categories.php";
 var category = "";
@@ -91,10 +94,9 @@ init ();
 //     console.log(data);
 //   });
 
-var mealInput = document.querySelector(".input-group-field");
 // fetch function for search input ===============
 function getMeal (meal) {
-    var meal = mealInput.value;
+    // var meal = mealInput.value;
     var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
     fetch(mealSearch)
       .then(function (response) {
@@ -108,97 +110,87 @@ function getMeal (meal) {
           console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
         } else {
         // anchor tag that takes user to a div tag with a specific ID, smooth scroll takes user to page 2, allows for return navigation by using "back"
-          for (var i = 0; i < data.meals.length; i++) {
-            location.href ="index.html#results";
-            var grid = $('#gridTarget');
-            var cell = $('<article>');
-            var card = $('<article>');
-            var cardBody = $('<article>');
-            cell.addClass('cell');
-            card.addClass('card');
-            cardBody.addClass('card-body');
-            grid.append(cell);
-            cell.append(card);
-            card.append(cardBody);
-            cardBody.attr('id', 'result'+ [i]);
-            $('#result'+[i]).text(data.meals[i].strMeal);
-            $('#result'+[i]).on('click', function(event) {
-              event.preventDefault();
-              location.href = "index.html#resultSingle";
-              var resImg = $('<img>');
-              $('#gridTarget2').append(cell);
-              cell.append(card);
-              card.append(resImg);
+          for (var i = 0; i < 9; i++) {
+            if (data.meals[i]== undefined) {
+              console.log("somethigng");
+            } else {
+              location.href ="index.html#results";
+              var grid = $('#gridTarget');
+              var cell = $('<article>');
+              var card = $('<article>');
+              var cardBody = $('<article>');
+              var image = $('<img>');
+              var imageGet = data.meals[i].strMealThumb;
               cell.addClass('cell');
               card.addClass('card');
-              card.attr('id','resultCard');
-              resImg.attr('id','resultImg');
-              $('#resultCard').text(this.innerHTML);
-              // $('#resultImg').attr('src', this.strMealThumb);
-              chuckQuote();
-            });
-           // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
-            mealArray.push(meal); {
-              if (mealArray.length > 7) {
-                mealArray.shift();
-                mealArray.length = Math.min(mealArray.length, 7);
-                mealInput.value = ""; // resets the search field
-                storeRecent();
-                listRecent();
-              } else {
-                mealInput.value = "";
-                storeRecent();
-                listRecent();
-              }
+              cardBody.addClass('card-body');
+              grid.append(cell);
+              cell.append(card);
+              card.append(cardBody);
+              card.append(image);
+              cardBody.attr('id', 'result'+ [i]);
+              image.attr('id','image'+ [i]);
+              $('#result'+[i]).text(data.meals[i].strMeal);
+              $('#image'+ [i]).attr('src', imageGet);
             }
           }
-        };
-        recents();
-        listRecent();
+          $('.card-body').on('click', function(event) {
+            event.preventDefault();
+            location.href = "index.html#resultSingle";
+            var imageSrc = this.children('img').getAttribute('src');
+            $('#gridTarget2').append(`<article class="cell">
+            <article class="card">${this.innerHTML}
+            <img src=${imageSrc}>
+            </article>
+            </article>`)
+            // cell.append(card);
+            // card.append(resImg);
+            // cell.addClass('cell');
+            // card.addClass('card');
+            // card.attr('id','resultCard');
+            // resImg.attr('id','resultImg');
+            // $('#resultCard').text(this.innerHTML);
+            // $('#resultImg').attr('src', imageSrc);
+            chuckQuote();
+          });
+           // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
+        }             
       });
-}
-// creates the results page
-// function renderCell () {
-//   location.href ="index.html#results";
-//   var grid = $("#gridTarget");
-//   var cell = $("<section>");
-//   var card = $("<section>");
-//   var cardBody = $("<section>");
+            if (mealArray.length > 7) {
+                mealArray.shift();
+                mealArray.length = Math.min(mealArray.length, 7);
+                mealArray.push(meal);
+                storeRecent();
+                listRecent();
+            }
+            
+        }
+        
 
-//   cell.addClass("cell");
-//   card.addClass("card");
-//   cardBody.addClass("card-body");
+// $(".cell").on("click", function (event) {
+//   event.preventDefault();
 
-//   grid.append(cell);
-//   cell.append(card);
-//   card.append(cardBody);
-// }
+//   if (id === "chicken") {
+//     category = "chicken";
+//   }
+//   if ($("id") === "beef") {
+//     category = "beef";
+//   }
+//   if ($("id") === "pork") {
+//     category = "pork";
+//   }
+//   if ($("id") === "lamb") {
+//     category = "lamb";
+//   }
+//   // if($("id") === "random"){
+//   //   category = ""
+//   // }
+//   if ($("id") === "seafood") {
+//     category = "seafood";
+//   }
 
-
-$(".cell").on("click", function (event) {
-  event.preventDefault();
-
-  if (id === "chicken") {
-    category = "chicken";
-  }
-  if ($("id") === "beef") {
-    category = "beef";
-  }
-  if ($("id") === "pork") {
-    category = "pork";
-  }
-  if ($("id") === "lamb") {
-    category = "lamb";
-  }
-  // if($("id") === "random"){
-  //   category = ""
-  // }
-  if ($("id") === "seafood") {
-    category = "seafood";
-  }
-
-  console.log(category);
-});
+//   console.log(category);
+// });
 
 function chuckQuote () {
     var chuckTarget = $('#chuckT');
@@ -259,6 +251,12 @@ function listRecent () {
   }
 }
 
-fetchButton.addEventListener('click', getMeal);
+fetchButton.addEventListener('click', function () {
+  var mealInput = document.querySelector(".input-group-field");
+  var mealValue = mealInput.value;
+  console.log(mealValue);
+  getMeal(mealValue)
+  mealInput.value = ""; // resets the search field
+ });  
 
 listRecent();
