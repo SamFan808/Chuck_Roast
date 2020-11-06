@@ -1,6 +1,6 @@
 // fix this.children thing line 140
 // link to recipe, make images clickable w/search
-// get chuck quote back
+// get chuck quote back, list items moving when clicked 0 fix that tommorrow
 var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 var foodCategory = "https://www.themealdb.com/api/json/v1/1/categories.php";
 var category = "";
