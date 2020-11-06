@@ -86,16 +86,18 @@ function getMeal (meal) {
           }
           $('article.card').on('click', function(event) {
             event.preventDefault();
+            $('summary').remove();
+            $('')
             location.href = "index.html#resultSingle";
-            $('#gridTarget2').append(`<article class="cell">
-            <section class="card">${this.innerHTML}
+            $('#gridTarget2').append(`<summary class="cell">
+            <summary class="card">${this.innerHTML}
             <img src=${""}>
-            </section>
-            </section>`)
+            </summary>
+            </summary>`)
             chuckQuote();
           });
             if (mealArray.length > 7) {
-              mealArray.unshift();
+              mealArray.shift();
               mealArray.length = Math.min(mealArray.length, 7);
               mealArray.push(meal);
               recents();
@@ -115,8 +117,8 @@ function getMeal (meal) {
 // chuck norris quote fetch function
 function chuckQuote () {
     var chuckTarget = $('#chuckT');
-    var chuckCell = $('<article>')
-    var chuckCard = $('<article>')
+    var chuckCell = $('<summary>')
+    var chuckCard = $('<summary>')
     var chuckH3 = $('<h3>');
     chuckCell.addClass('cell');
     chuckCard.addClass('card');
@@ -172,9 +174,10 @@ function listRecent () {
     }
   }
 }
-
+// clears previous results 
 function clear () {
   $('article').remove();
+  $('summary').remove();
 }
 // adds click even to the search button, passes userinput variable to the getMeal function
 fetchButton.addEventListener('click', function () {
