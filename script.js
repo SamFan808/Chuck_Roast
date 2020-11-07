@@ -84,6 +84,7 @@ function getMeal(meal) {
             var card = $("<article>");
             var cardBody = $("<article>");
             var image = $("<img>");
+            var tubeA1 = $("<a>");
             var imageGet = data.meals[i].strMealThumb;
             var recipeLink = data.meals[i].strYoutube;
             cell.addClass("cell");
@@ -93,23 +94,25 @@ function getMeal(meal) {
             cell.append(card);
             card.append(cardBody);
             card.append(image);
+            card.append(tubeA1);
+            tubeA1.attr('id', "tube"+ [i]);
             cardBody.attr("id", "result" + [i]);
             image.attr("id", "image" + [i]);
             $("#result" + [i]).text(data.meals[i].strMeal);
-            $("#result" + [i]).attr("href", recipeLink);
+            $("#tube" + [i]).attr("href", recipeLink);
             $("#image" + [i]).attr("src", imageGet);
-          }
+            }
         }
         $("article.card").on("click", function (event) {
           event.preventDefault();
           $("summary").remove();
+          $('a').show();
           location.href = "index.html#resultSingle";
           $("#gridTarget2").append(`<summary class="cell">
-            <summary class="card">${this.innerHTML}  
-            <a href=${recipeLink}>Youtube Recipe Link</a>
-            <img src=${""}>
+            <summary class="card">${this.innerHTML}
             </summary>
             </summary>`);
+            $('a').text("YouTube recipe link");
           chuckQuote();
         });
         if (mealArray.length > 7) {
