@@ -9,6 +9,7 @@ body {
 
 h1 {
   text-align: center;
+  font-weight: bold;
 }
 
 .break {
@@ -19,4 +20,16 @@ h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
+  background-color: rgb(255, 255, 248);
+  border-color: rgb(255, 255, 248);
+}
+
+.input-group-field {
+  background-color: rgb(255, 255, 248);
+}
+
+h3 {
+  color: rgb(3, 3, 26);
+  font-weight: bolder;
+  background-color: rgb(255, 255, 248);
 }
