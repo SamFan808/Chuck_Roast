@@ -23,3 +23,9 @@ As a home chef, I want a recipe based off of the ingredients that I have at home
 - Sam Fan
 - Sara King
 - Shawn McPhee
+
+## GitHub Repository URL
+
+https://github.com/SamFan808/Chuck_Roast.git
+
+## Live URL
