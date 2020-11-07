@@ -57,8 +57,10 @@ function getMeal (meal) {
       .then(function (data) {
         // $('#result').empty();
         if (meal === "") {
+          alert("Please input some text to search")
           console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
         } else if (data.meals === null) {
+          alert("Sorry, meal not found. Try again")
           console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
         } else {
         // location takes user to a div tag with a specific ID, smooth scroll takes user to page 2, allows for return navigation by using "back"

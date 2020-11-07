@@ -3,8 +3,9 @@ html {
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: grey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: lightgrey;
 }
 
 h1 {
@@ -12,10 +13,16 @@ h1 {
 }
 
 .break {
-  padding-top: 600px;
+  padding-top: 200px;
 }
 
 card {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  border-color: blue;
+}
+
+.modal {
+  position: absolute;
+  z-index: 1000;
 }
