@@ -59,6 +59,7 @@ $("#fish").on("click", function (event) {
   }
 });
 // fetch function for search input =======================================
+<<<<<<< HEAD
 function getMeal (meal) {
   var mealSearch = "https://www.themealdb.com/api/json/v1/1/search.php?s="+ meal;
     fetch(mealSearch)
@@ -74,6 +75,22 @@ function getMeal (meal) {
           alert("Sorry, meal not found. Try again")
           console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
         } else {
+=======
+function getMeal(meal) {
+  var mealSearch =
+    "https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal;
+  fetch(mealSearch)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // $('#result').empty();
+      if (meal === "") {
+        console.log("bad input"); // let's put a modal alert here that says - "please input some text to search"
+      } else if (data.meals === null) {
+        console.log("try again"); // let's put another modal alert here that reads "Sorry, meal not found. Try again"
+      } else {
+>>>>>>> main
         // location takes user to a div tag with a specific ID, smooth scroll takes user to page 2, allows for return navigation by using "back"
         for (var i = 0; i < 9; i++) {
           if (data.meals[i] == undefined) {
@@ -195,7 +212,11 @@ function clear() {
   $("article").remove();
   $("summary").remove();
 }
+<<<<<<< HEAD
 // adds click even to the search button, passes user input variable to the getMeal function
+=======
+// adds click even to the search button, passes userinput variable to the getMeal function
+>>>>>>> main
 fetchButton.addEventListener("click", function () {
   var mealInput = document.querySelector(".input-group-field");
   var mealValue = mealInput.value;
