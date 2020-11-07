@@ -81,7 +81,7 @@ function getMeal(meal) {
             var cardBody = $("<article>");
             var image = $("<img>");
             var imageGet = data.meals[i].strMealThumb;
-            var recipeLink = data.meals[i].strSource;
+            var recipeLink = data.meals[i].strYoutube;
             console.log(recipeLink);
             cell.addClass("cell");
             card.addClass("card");
@@ -93,6 +93,7 @@ function getMeal(meal) {
             cardBody.attr("id", "result" + [i]);
             image.attr("id", "image" + [i]);
             $("#result" + [i]).text(data.meals[i].strMeal);
+            $("#result" + [i]).attr("href", recipeLink);
             $("#image" + [i]).attr("src", imageGet);
           }
         }
@@ -101,7 +102,8 @@ function getMeal(meal) {
           $("summary").remove();
           location.href = "index.html#resultSingle";
           $("#gridTarget2").append(`<summary class="cell">
-            <summary class="card">${this.innerHTML}
+            <summary class="card">${this.innerHTML} + 
+            <a href=${this.recipeLink}>Youtube Recipe Link</a>
             <img src=${""}>
             </summary>
             </summary>`);
