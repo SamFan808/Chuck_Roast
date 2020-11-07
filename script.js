@@ -95,6 +95,7 @@ $(document).ready(function () {
               card.append(image);
               card.append(tubeA1);
               tubeA1.attr("id", "tube" + [i]);
+              tubeA1.attr("target", "_blank");
               cardBody.attr("id", "result" + [i]);
               image.attr("id", "image" + [i]);
               $("#result" + [i]).text(data.meals[i].strMeal);
