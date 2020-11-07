@@ -12,11 +12,14 @@ As a home chef, I want a recipe based off of the ingredients that I have at home
 
 The following is a mock-up of the application
 
-![Homepage](.Wireframe/WireFrame-1.png)
+Homepage
+![Homepage](./Wireframe/WireFrame-1.png)
 
-![Results page, icons are a selection of recipes by category](.Wireframe/WireFrame-2.png)
+Results page, icons are a selection of recipes by category
+![Results](./Wireframe/WireFrame-2.png)
 
-![Final result page shows a linked image, and Chuck Norris joke at the bottom](.Wireframe/WireFrame-3.png)
+Final result page shows a linked image, and Chuck Norris joke at the bottom
+![Final](./Wireframe/WireFrame-3.png)
 
 ## Third-party Assets:
 
