@@ -1,5 +1,3 @@
-// link to recipe
-// list items keep adding when clicked, fix this sometime
 var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 var norrisFoodQuotes = "https://api.chucknorris.io/jokes/random?category=food";
 var mealArray = [];
@@ -9,38 +7,44 @@ init ();
 // on click events for each category icon
 $('#chicken').on('click', function (event) {
   event.preventDefault(); {
+    clear();
     console.log("chicken");
     getMeal("chicken");
   }
 });
 $('#beef').on('click', function (event) {
   event.preventDefault(); {
+    clear();
     console.log("beef");
     getMeal("beef");
   }
 });
 $('#pork').on('click', function (event) {
   event.preventDefault(); {
+    clear();
     console.log("pork");
     getMeal("pork");
   }
 });
 $('#lamb').on('click', function (event) {
   event.preventDefault(); {
+    clear();
     console.log("lamb");
     getMeal("lamb");
   }
 });
-$('#dessert').on('click', function (event) { //
+$('#chocolate').on('click', function (event) { //
   event.preventDefault(); {
-    console.log("dessert");
-    getMeal("dessert");
+    clear();
+    console.log("chocolate");
+    getMeal("chocolate");
   }
 });
-$('#seafood').on('click', function (event) {
+$('#fish').on('click', function (event) {
   event.preventDefault(); {
-    console.log("seafood");
-    getMeal("seafood");
+    clear();
+    console.log("fish");
+    getMeal("fish");
   }
 });
 // fetch function for search input =======================================
@@ -87,7 +91,6 @@ function getMeal (meal) {
           $('article.card').on('click', function(event) {
             event.preventDefault();
             $('summary').remove();
-            $('')
             location.href = "index.html#resultSingle";
             $('#gridTarget2').append(`<summary class="cell">
             <summary class="card">${this.innerHTML}
@@ -103,7 +106,6 @@ function getMeal (meal) {
               recents();
               storeRecent();
               listRecent();
-              
             } else if (mealArray.length >= 0) {
               mealArray.push(meal);
               storeRecent();
@@ -134,7 +136,6 @@ function chuckQuote () {
         $('#chuck').text(data.value);
       });
 }
-
 // localStorage feature goes here ========================
 // stores recent searches in localStorage
 function storeRecent() {
