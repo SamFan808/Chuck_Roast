@@ -82,7 +82,6 @@ function getMeal(meal) {
             var image = $("<img>");
             var imageGet = data.meals[i].strMealThumb;
             var recipeLink = data.meals[i].strYoutube;
-            console.log(recipeLink);
             cell.addClass("cell");
             card.addClass("card");
             cardBody.addClass("card-body");
@@ -102,8 +101,8 @@ function getMeal(meal) {
           $("summary").remove();
           location.href = "index.html#resultSingle";
           $("#gridTarget2").append(`<summary class="cell">
-            <summary class="card">${this.innerHTML} + 
-            <a href=${this.recipeLink}>Youtube Recipe Link</a>
+            <summary class="card">${this.innerHTML}  
+            <a href=${""}>Youtube Recipe Link</a>
             <img src=${""}>
             </summary>
             </summary>`);
