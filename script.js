@@ -5,6 +5,7 @@ var recentList = document.querySelector(".recents");
 var fetchButton = document.querySelector(".button");
 init();
 // on click events for each category icon
+
 $("#Chicken").on("click", function (event) {
   event.preventDefault();
   {
@@ -32,11 +33,13 @@ $("#pork").on("click", function (event) {
 $("#lamb").on("click", function (event) {
   event.preventDefault();
   {
+
     clear();
     console.log("lamb");
     getMeal("lamb");
   }
 });
+
 $("#chocolate").on("click", function (event) {
   //
   event.preventDefault();
@@ -46,6 +49,7 @@ $("#chocolate").on("click", function (event) {
     getMeal("chocolate");
   }
 });
+
 $("#fish").on("click", function (event) {
   event.preventDefault();
   {
