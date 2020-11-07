@@ -6,7 +6,7 @@ Find a recipe based off of your ingredients at home, and get a food based Chuck 
 
 ## Usage:
 
-As a home chef, I want a recipe based off of the ingredients that I have at home.  I also love chuck Norris and would love a joke to help me get inspired to round house kick that recipe.
+As a home chef, I want a recipe based off of the ingredients that I have at home. I also love Chuck Norris and would love a joke to help me get inspired to round house kick that recipe.
 
 ## Wireframe:
 
@@ -25,11 +25,16 @@ The following is a mock-up of the application
 
 ## Third-party Assets:
 
-* [Foundation](https://get.foundation/sites/docs/installation.html)
-* [TheMealDB](https://www.themealdb.com/api.php)
-* [Chuck Norris database](http://www.icndb.com/api/)
+- [Foundation](https://get.foundation/sites/docs/installation.html)
+- [TheMealDB](https://www.themealdb.com/api.php)
+- [Chuck Norris database](http://www.icndb.com/api/)
 
 ## Collaborators:
-* Sam Fan
-* Sara King
-* Shawn McPhee
+
+- Sam Fan
+- Sara King
+- Shawn McPhee
+
+## Screen Shot of Page
+
+<img src = "ChuckRoast.png" alt="Chuck Roast Screenshot">
