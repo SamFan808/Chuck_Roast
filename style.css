@@ -16,13 +16,8 @@ h1 {
   padding-top: 200px;
 }
 
-card {
+.card {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  border-color: blue;
-}
-
-.modal {
-  position: absolute;
-  z-index: 1000;
+  text-align: center;
 }
