@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   var randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
   var norrisFoodQuotes =
@@ -122,6 +123,7 @@ $(document).ready(function () {
             storeRecent();
             listRecent();
           }
+
         }
       });
   }
