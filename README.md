@@ -1,40 +1,25 @@
-# Project_1 Chuck Roast
+# Chuck Roast
 
-## Description:
+## Description
 
 Find a recipe based off of your ingredients at home, and get a food based Chuck Norris joke
 
-## Usage:
+## Usage
 
 As a home chef, I want a recipe based off of the ingredients that I have at home. I also love Chuck Norris and would love a joke to help me get inspired to round house kick that recipe.
 
-## Wireframe:
+## Screen Shot of Page
 
-=======
-The following is a mock-up of the application
+<img src = "ChuckRoast.png" alt="Chuck Roast Screenshot">
 
-![Homepage](Wireframe/WireFrame-1.png)
-
-![Results page, icons are a selection of recipes by category](Wireframe/WireFrame-1.png)
-
-![Results page, icons are a selection of recipes by category](Wireframe/WireFrame-2.png)
-
-=======
-
-[Final result page shows a linked image, and Chuck Norris joke at the bottom](Wireframe/WireFrame-3.png)
-
-## Third-party Assets:
+## Third-party Assets
 
 - [Foundation](https://get.foundation/sites/docs/installation.html)
 - [TheMealDB](https://www.themealdb.com/api.php)
 - [Chuck Norris database](http://www.icndb.com/api/)
 
-## Collaborators:
+## Collaborators
 
 - Sam Fan
 - Sara King
 - Shawn McPhee
-
-## Screen Shot of Page
-
-<img src = "ChuckRoast.png" alt="Chuck Roast Screenshot">
