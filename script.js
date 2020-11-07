@@ -5,7 +5,7 @@ var recentList = document.querySelector(".recents");
 var fetchButton = document.querySelector(".button");
 init();
 // on click events for each category icon
-$("#Chicken").on("click", function (event) {
+$("#chicken").on("click", function (event) {
   event.preventDefault();
   {
     clear();
