@@ -30,6 +30,6 @@ The following is a mock-up of the application
 * [Chuck Norris database](http://www.icndb.com/api/)
 
 ## Collaborators:
-* Sam Fran
+* Sam Fan
 * Sara King
 * Shawn McPhee
