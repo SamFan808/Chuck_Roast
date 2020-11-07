@@ -5,7 +5,7 @@ var recentList = document.querySelector(".recents");
 var fetchButton = document.querySelector(".button");
 init();
 // on click events for each category icon
-$("#chicken").on("click", function (event) {
+$("#Chicken").on("click", function (event) {
   event.preventDefault();
   {
     clear();
@@ -102,7 +102,7 @@ function getMeal(meal) {
           location.href = "index.html#resultSingle";
           $("#gridTarget2").append(`<summary class="cell">
             <summary class="card">${this.innerHTML}  
-            <a href=${""}>Youtube Recipe Link</a>
+            <a href=${recipeLink}>Youtube Recipe Link</a>
             <img src=${""}>
             </summary>
             </summary>`);
