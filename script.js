@@ -109,9 +109,8 @@ function getMeal (meal) {
               storeRecent();
               listRecent();
             }
-            
           }             
-      });  // takes the last input item and adds it the recent list, removes the oldest once 7 items are listed, up to 7 recent items for now
+      });  
 
 }
 // chuck norris quote fetch function
