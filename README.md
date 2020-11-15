@@ -18,6 +18,12 @@ As a home chef, I want a recipe based off of the ingredients that I have at home
 - [TheMealDB](https://www.themealdb.com/api.php)
 - [Chuck Norris database](http://www.icndb.com/api/)
 
+## Technologies Utilized
+- HTML
+- CSS
+- JavaScript
+- jQuery
+
 ## Collaborators
 
 - Sam Fan
