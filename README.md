@@ -26,9 +26,9 @@ As a home chef, I want a recipe based off of the ingredients that I have at home
 
 ## Collaborators
 
-- Sam Fan
-- Sara King
-- Shawn McPhee
+- [Sam Fan](https://github.com/SamFan808)
+- [Sara King](https://github.com/sarahayes20)
+- [Shawn McPhee](https://github.com/scmcphee9)
 
 ## GitHub Repository URL
 
